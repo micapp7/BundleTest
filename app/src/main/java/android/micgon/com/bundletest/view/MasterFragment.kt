@@ -1,5 +1,6 @@
-package android.micgon.com.bundletest
+package android.micgon.com.bundletest.view
 
+import android.micgon.com.bundletest.R
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -16,14 +17,12 @@ class MasterFragment : Fragment() {
         val editText = view.findViewById<EditText>(R.id.et_username)
 
         masterButton.setOnClickListener {
-            val secondFragment: SecondFragment = SecondFragment().newInstance(editText.text.toString())
+            val secondFragment: SecondFragment = SecondFragment.newInstance(editText.text.toString())
             activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.fragment_container, secondFragment, "second fragment tag")
                     ?.addToBackStack(null)
                     ?.commit()
             editText.text.clear()
-
-
         }
 
         return view

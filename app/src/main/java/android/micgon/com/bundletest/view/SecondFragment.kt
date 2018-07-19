@@ -1,6 +1,8 @@
-package android.micgon.com.bundletest
+package android.micgon.com.bundletest.view
 
 import android.arch.lifecycle.ViewModelProviders
+import android.micgon.com.bundletest.R
+import android.micgon.com.bundletest.viewmodel.SharedViewModel
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +13,6 @@ import android.widget.TextView
 class SecondFragment : Fragment() {
     lateinit var sharedViewModel: SharedViewModel
 
-    lateinit var secondText: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,24 +22,26 @@ class SecondFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_second, container, false)
         val secondText = view.findViewById<TextView>(R.id.second_text)
         val sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
-        val username = arguments?.get(USERNAME) as CharSequence?
+        val USER_ID = arguments?.get(USER_ID) as CharSequence?
 
-        secondText.text = getString(R.string.welcome_second, username)
+        secondText.text = getString(R.string.welcome_second, USER_ID)
 
 
         return view
     }
 
-    fun newInstance(name: String): SecondFragment{
-        val args = Bundle()
-        args.putString(USERNAME, name)
-        val fragment = SecondFragment()
-        fragment.arguments = args
-        return fragment
-    }
+
 
     companion object {
-        val USERNAME = "username"
+        private val USER_ID = "id"
+
+        fun newInstance(name: String): SecondFragment {
+            val args = Bundle()
+            args.putString(USER_ID, name)
+            val fragment = SecondFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 
 

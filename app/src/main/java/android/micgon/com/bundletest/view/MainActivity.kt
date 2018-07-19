@@ -1,8 +1,8 @@
-package android.micgon.com.bundletest
+package android.micgon.com.bundletest.view
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.micgon.com.bundletest.R
+import android.micgon.com.bundletest.viewmodel.SharedViewModel
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
