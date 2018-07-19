@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BundleTest</string>
+    <string name="master_text">Master Fragment</string>
+    <string name="click_me">Click Me</string>
+    <string name="master_hint">Username</string>
+    <string name="welcome_second">Welcome %1$s</string>
+</resources>
